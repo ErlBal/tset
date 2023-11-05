@@ -1,0 +1,14 @@
+{% load static %}
+{% include 'games_template/header.html' %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<form action="/create_review/" method="post" enctype="multipart/form-data" class="air">
+    {% csrf_token %}
+    {{ form.as_p }}
+<div class="form-row-icon">
+    <button type="submit">Сохранить</button>
+    <button type="reset">Отмена</button>
+</div>
+</form>
+
+{% include 'games_template/footer.html' %}

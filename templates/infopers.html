@@ -1,0 +1,13 @@
+{% include 'games_template/header.html' %}
+
+    {% for i in info %}
+        {{ i.title }}
+        <br>
+        {{i.description}}
+        <br>
+        <img src="{{i.image.url}}" alt="">
+        <br>
+        {{i.created_at}}
+    {% endfor %}
+
+{% include 'games_template/footer.html' %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Удалить игру?</title>
+</head>
+<body>
+<h1>Удалить игру?</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit">Да</button>
+    <button><a href="/game_list" style="text-decoration: none; color:black;">Нет</a></button>
+</form>
+</body>
+</html>

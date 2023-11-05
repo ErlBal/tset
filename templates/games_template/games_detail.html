@@ -1,0 +1,44 @@
+{% load static %}
+{% include 'games_template/header.html' %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="text-center">
+    <span class="badge text-bg-dark"><h1>Детальная информация об игре - {{object.title}}</h1></span>
+</div>
+
+<div class="btn-style">
+    <button  class="btn btn-light"><a href="/game_detail/{{ object.id }}/delete/">Удалить</a></button>
+    <button  class="btn btn-light"><a href="/game_detail/{{ object.id }}/update/">Изменить</a></button>
+
+</div>
+
+<div class="block-box">
+    <div class="card" style="width: 18rem;">
+      <img src="{{object.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{object.title}}</h5>
+        <p class="card-text">{{object.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Жанр - {{object.genre}}</li>
+        <li class="list-group-item">Цена: {{object.cost}}</li>
+        <li class="list-group-item">Год выпуска: {{object.year}}</li>
+        <li class="list-group-item">Издатель - {{object.publisher}}</li>
+        <li class="list-group-item">Игровая плтаформа - {{object.platform}}</li>
+      <iframe src="{{object.trailer}}" frameborder="0"></iframe>
+      <iframe src="{{object.gameplay}}" frameborder="0"></iframe>
+      </ul>
+    </div>
+</div>
+<div class="table-center">
+    <table border="4" bgcolor="white">
+        <tr>
+            <th>Коммент &nbsp;</th> <th>Оценка&nbsp;</th> <th>Дата создания&nbsp;</th>
+        </tr>
+        {% for i in object.comment_object.all %}
+        <tr>
+            <th>{{i.text_comment}} &nbsp;</th> <th>{{i.rate_stars}}&nbsp;</th> <th>{{i.created_at}}&nbsp;</th>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% include 'games_template/footer.html' %}
